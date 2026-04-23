@@ -1,0 +1,37 @@
+# Novel → Manga 流水线依赖
+# 版本保留灵活性 · PyTorch 与 CUDA 版本匹配很重要
+#
+# 安装:
+#     pip install -r requirements.txt
+#
+# PyTorch 请按 CUDA 版本单独装:
+#     pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+
+# --- Core stack ---
+transformers>=4.45.0
+accelerate>=0.34.0
+safetensors>=0.4.5
+huggingface-hub>=0.27.0
+hf_transfer>=0.1.9
+
+# --- Face ID scoring ---
+insightface==0.7.3
+onnxruntime-gpu>=1.19.0
+facexlib>=0.3.0
+
+# --- Image ops ---
+Pillow>=10.4.0
+opencv-python-headless>=4.10.0
+numpy>=1.26.0
+scipy>=1.14.0
+
+# --- LLM (Stage 0) ---
+anthropic>=0.39.0
+openai>=1.54.0
+
+# --- Layout / typography ---
+pilmoji>=2.0.4
+fontTools>=4.54.0
+
+# --- HTTP ---
+requests>=2.32.0

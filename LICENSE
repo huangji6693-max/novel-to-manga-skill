@@ -1,0 +1,44 @@
+MIT License
+
+Copyright (c) 2026 huangji6693-max
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+模型 License 说明 · 请自行遵守
+================================================================================
+
+本仓库的代码是 MIT，但它调用的 AI 模型有各自的 license：
+
+- FLUX.1-dev / FLUX.1-Kontext-dev (Black Forest Labs)
+  非商业许可 non-commercial
+  商用请购买：https://blackforestlabs.ai/flux-1-dev-license-faq/
+
+- PuLID / PuLID-FLUX (ByteDance): Apache 2.0
+- InsightFace antelopev2: MIT（禁止识别监控用途）
+- CLIP (OpenAI): MIT
+- ControlNet for Flux (XLabs-AI): Apache 2.0
+- DiffSensei: 见其仓库
+
+使用者有义务：
+  - 商用场景自行购买 FLUX dev 商业授权
+  - 不得用于深度伪造、骚扰、挂人、未成年人内容
+  - 不得规避版权（小说改编漫画须有原作授权）
+
+项目作者不承担由 license 违规引发的任何后果。

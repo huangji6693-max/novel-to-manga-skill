@@ -1,0 +1,106 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {"unet_name": "flux1-dev.safetensors", "weight_dtype": "default"}
+  },
+  "2": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp16.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    }
+  },
+  "3": {"class_type": "VAELoader", "inputs": {"vae_name": "ae.safetensors"}},
+  "4": {"class_type": "PulidFluxModelLoader", "inputs": {"pulid_file": "pulid_flux_v0.9.1.safetensors"}},
+  "5": {"class_type": "PulidFluxInsightFaceLoader", "inputs": {"provider": "CUDA"}},
+  "6": {"class_type": "PulidFluxEvaClipLoader", "inputs": {}},
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": {"image": "PLACEHOLDER_POSE_MAP.png"},
+    "_meta": {"title": "OpenPose map"}
+  },
+  "11": {
+    "class_type": "LoadImage",
+    "inputs": {"image": "PLACEHOLDER_FACE_REF.png"}
+  },
+  "30": {
+    "class_type": "LoadFluxControlNet",
+    "inputs": {
+      "model_name": "flux-dev",
+      "controlnet_path": "flux-openpose-controlnet.safetensors"
+    },
+    "_meta": {"title": "Load Flux ControlNet (OpenPose)"}
+  },
+  "31": {
+    "class_type": "ApplyFluxControlNet",
+    "inputs": {
+      "controlnet": ["30", 0],
+      "image": ["10", 0],
+      "strength": 0.7
+    }
+  },
+  "15": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {"text": "PLACEHOLDER_PROMPT", "clip": ["2", 0]}
+  },
+  "16": {"class_type": "CLIPTextEncode", "inputs": {"text": "", "clip": ["2", 0]}},
+  "32": {
+    "class_type": "XlabsSampler",
+    "inputs": {
+      "model": ["20", 0],
+      "conditioning": ["15", 0],
+      "neg_conditioning": ["16", 0],
+      "controlnet_condition": ["31", 0],
+      "noise_seed": 42,
+      "steps": 30,
+      "guidance": 3.5,
+      "timestep_to_start_cfg": 5,
+      "true_gs": 3.5,
+      "image_to_image_strength": 0.0,
+      "denoise_strength": 1.0
+    }
+  },
+  "17": {
+    "class_type": "EmptySD3LatentImage",
+    "inputs": {"width": 1024, "height": 1024, "batch_size": 1}
+  },
+  "20": {
+    "class_type": "ApplyPulidFlux",
+    "inputs": {
+      "model": ["1", 0],
+      "pulid_flux": ["4", 0],
+      "eva_clip": ["6", 0],
+      "face_analysis": ["5", 0],
+      "image": ["11", 0],
+      "weight": 0.9,
+      "start_at": 0.0,
+      "end_at": 0.75,
+      "attn_mask": null
+    }
+  },
+  "18": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": ["20", 0],
+      "positive": ["15", 0],
+      "negative": ["16", 0],
+      "latent_image": ["17", 0],
+      "seed": 42,
+      "steps": 30,
+      "cfg": 3.0,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "sgm_uniform",
+      "denoise": 1.0
+    },
+    "_meta": {"title": "Fallback sampler (if XlabsSampler unavailable)"}
+  },
+  "21": {
+    "class_type": "VAEDecode",
+    "inputs": {"samples": ["18", 0], "vae": ["3", 0]}
+  },
+  "22": {
+    "class_type": "SaveImage",
+    "inputs": {"images": ["21", 0], "filename_prefix": "panel_cn"}
+  }
+}

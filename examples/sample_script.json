@@ -1,0 +1,112 @@
+{
+  "chapter": "第一章 · 雨夜相遇",
+  "style_tail": "manga style, detailed linework, ink shading, cinematic composition, atmospheric lighting, 8k",
+  "characters": [
+    {
+      "id": "lin_shu",
+      "name": "LinShu",
+      "age": 17,
+      "gender": "M",
+      "appearance": "short black side-parted hair, white button-down shirt with stained cuff, thin black-rim glasses, slim build"
+    },
+    {
+      "id": "yan_bing",
+      "name": "YanBing",
+      "age": 19,
+      "gender": "F",
+      "appearance": "long black hair down to shoulders, icy blue eyes, black trench coat, red scarf soaked with rain"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 1,
+      "layout": "6-panel-standard",
+      "panels": [
+        {
+          "panel_id": "p1-1",
+          "shot": "establishing",
+          "angle": "high-angle",
+          "chars": [],
+          "pose": "empty alley with neon signs reflecting in wet asphalt",
+          "emotion": "desolate",
+          "background": "rain-soaked Tokyo Shimokitazawa alley, neon signs, puddles",
+          "lighting": "cool moonlight + warm pink/blue neon from left",
+          "time": "2:30 AM",
+          "continuity": "opening shot",
+          "dialog": null,
+          "prompt_tail": "manga style, detailed linework, ink shading, cinematic composition, atmospheric lighting, 8k"
+        },
+        {
+          "panel_id": "p1-2",
+          "shot": "medium",
+          "angle": "eye-level",
+          "chars": ["lin_shu"],
+          "pose": "holding a broken black umbrella, white shirt cuff stained",
+          "emotion": "tired",
+          "background": "same alley, puddles reflecting neon",
+          "lighting": "continuous cool moonlight + warm neon from left (same as p1-1)",
+          "time": "2:30 AM",
+          "continuity": "same location, same lighting direction as p1-1, zooming in to LinShu",
+          "dialog": null,
+          "prompt_tail": "manga style, detailed linework, ink shading, cinematic composition, atmospheric lighting, 8k"
+        },
+        {
+          "panel_id": "p1-3",
+          "shot": "over-shoulder",
+          "angle": "eye-level",
+          "chars": ["lin_shu"],
+          "pose": "looking back over shoulder, rain dripping from hair",
+          "emotion": "alert",
+          "background": "alley fading into darkness behind",
+          "lighting": "warm neon catching the right cheek, rest in shadow",
+          "time": "2:30 AM",
+          "continuity": "LinShu turns head, same alley, gaze leads to next panel",
+          "dialog": "……是你？",
+          "prompt_tail": "manga style, detailed linework, ink shading, cinematic composition, atmospheric lighting, 8k"
+        },
+        {
+          "panel_id": "p1-4",
+          "shot": "medium",
+          "angle": "low-angle",
+          "chars": ["yan_bing"],
+          "pose": "emerging from alley shadow, hands in pockets of long trench coat, red scarf wet",
+          "emotion": "mysterious calm",
+          "background": "deep alley, streetlight behind creating silhouette",
+          "lighting": "backlit by warm streetlamp, rim light on hair",
+          "time": "2:30 AM",
+          "continuity": "YanBing emerges where LinShu's gaze in p1-3 pointed",
+          "dialog": null,
+          "prompt_tail": "manga style, detailed linework, ink shading, cinematic composition, atmospheric lighting, 8k"
+        },
+        {
+          "panel_id": "p1-5",
+          "shot": "close-up",
+          "angle": "eye-level",
+          "chars": ["yan_bing"],
+          "pose": "calm face, lips parted speaking",
+          "emotion": "serious",
+          "background": "blurred rain droplets, bokeh neon",
+          "lighting": "soft rim light on left cheek, cold blue fill on right",
+          "time": "2:30 AM",
+          "continuity": "continuing p1-4, closer on YanBing's face, same backlight direction",
+          "dialog": "你在找什么？",
+          "prompt_tail": "manga style, detailed linework, ink shading, cinematic composition, atmospheric lighting, 8k"
+        },
+        {
+          "panel_id": "p1-6",
+          "shot": "close-up",
+          "angle": "eye-level",
+          "chars": ["lin_shu"],
+          "pose": "lowering gaze, lips pressed, rain running down glasses",
+          "emotion": "hesitant",
+          "background": "blurred alley, warm neon bokeh",
+          "lighting": "warm neon from left on cheek, cool backlight outline, matches p1-3 direction",
+          "time": "2:30 AM",
+          "continuity": "reverse-shot after YanBing's question in p1-5",
+          "dialog": "在找一个人。",
+          "prompt_tail": "manga style, detailed linework, ink shading, cinematic composition, atmospheric lighting, 8k"
+        }
+      ]
+    }
+  ]
+}

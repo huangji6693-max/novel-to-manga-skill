@@ -1,0 +1,1 @@
+"""Novel → Manga pipeline scripts."""

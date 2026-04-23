@@ -1,0 +1,31 @@
+[
+  {
+    "id": "lin_shu",
+    "name": "林书",
+    "age": 17,
+    "gender": "M",
+    "appearance": "黑色短发偏分、白衬衫、黑色细框眼镜、身高中等、体型偏瘦、皮肤偏白",
+    "personality": "内向寡言、观察敏锐",
+    "outfits": [
+      "white button-down shirt with black slacks",
+      "navy school uniform with gold buttons",
+      "black wool coat over gray sweater",
+      "white T-shirt with denim jacket"
+    ],
+    "accessories": ["thin-rim black glasses", "silver watch on left wrist"]
+  },
+  {
+    "id": "yan_bing",
+    "name": "言冰",
+    "age": 19,
+    "gender": "F",
+    "appearance": "长发黑色披肩、冰蓝色眼睛、偏白皮肤、轮廓冷艳、中等身高",
+    "personality": "冷静神秘、行动果断",
+    "outfits": [
+      "long black trench coat with red scarf",
+      "white turtleneck with dark jeans",
+      "black formal dress with silver pendant"
+    ],
+    "accessories": ["silver crescent pendant"]
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux1-kontext-dev.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {"title": "Load FLUX.1-Kontext-dev"}
+  },
+  "2": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp16.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {"vae_name": "ae.safetensors"}
+  },
+  "4": {
+    "class_type": "PulidFluxModelLoader",
+    "inputs": {"pulid_file": "pulid_flux_v0.9.1.safetensors"}
+  },
+  "5": {
+    "class_type": "PulidFluxInsightFaceLoader",
+    "inputs": {"provider": "CUDA"}
+  },
+  "6": {
+    "class_type": "PulidFluxEvaClipLoader",
+    "inputs": {}
+  },
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": {"image": "PLACEHOLDER_KONTEXT_REF.png"},
+    "_meta": {"title": "Kontext Reference (outfit/pose)"}
+  },
+  "11": {
+    "class_type": "LoadImage",
+    "inputs": {"image": "PLACEHOLDER_FACE_REF.png"},
+    "_meta": {"title": "PuLID Face Reference"}
+  },
+  "12": {
+    "class_type": "FluxKontextImageScale",
+    "inputs": {"image": ["10", 0]},
+    "_meta": {"title": "Kontext Scale Reference"}
+  },
+  "13": {
+    "class_type": "VAEEncode",
+    "inputs": {"pixels": ["12", 0], "vae": ["3", 0]},
+    "_meta": {"title": "Encode Reference → Latent"}
+  },
+  "15": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "PLACEHOLDER_PANEL_PROMPT",
+      "clip": ["2", 0]
+    }
+  },
+  "16": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {"text": "", "clip": ["2", 0]}
+  },
+  "14": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": ["15", 0],
+      "latent": ["13", 0]
+    },
+    "_meta": {"title": "Kontext Reference Latent Injection"}
+  },
+  "17": {
+    "class_type": "EmptySD3LatentImage",
+    "inputs": {"width": 1024, "height": 1024, "batch_size": 1}
+  },
+  "20": {
+    "class_type": "ApplyPulidFlux",
+    "inputs": {
+      "model": ["1", 0],
+      "pulid_flux": ["4", 0],
+      "eva_clip": ["6", 0],
+      "face_analysis": ["5", 0],
+      "image": ["11", 0],
+      "weight": 0.85,
+      "start_at": 0.0,
+      "end_at": 0.7,
+      "attn_mask": null
+    }
+  },
+  "18": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": ["20", 0],
+      "positive": ["14", 0],
+      "negative": ["16", 0],
+      "latent_image": ["17", 0],
+      "seed": 42,
+      "steps": 30,
+      "cfg": 3.0,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "sgm_uniform",
+      "denoise": 0.85
+    }
+  },
+  "21": {
+    "class_type": "VAEDecode",
+    "inputs": {"samples": ["18", 0], "vae": ["3", 0]}
+  },
+  "22": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": ["21", 0],
+      "filename_prefix": "panel"
+    }
+  }
+}
