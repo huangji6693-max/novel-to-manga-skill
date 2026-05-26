@@ -203,3 +203,10 @@ MIT · 见 [LICENSE](LICENSE)
 - XLabs-AI ControlNet collection
 
 欢迎 issue / PR。
+
+
+---
+
+## 相关项目
+
+- **[claude-code-dna](https://github.com/huangji6693-max/claude-code-dna)** —— Claude Code 的行为操作系统。Karpathy 4 律 + 15 条操作直觉 + 记忆架构 + 194 skill + 99 agent 精选目录。drop-in 到 `~/.claude/`。
